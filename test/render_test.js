@@ -44,8 +44,13 @@ describe('render', () => {
   })
   describe('getMonthLength', () => {
     it('it should return the correct amount of days in a month', () => {
-      assert.equal(getMonthLength(8), 31)
-      // assert.equal(getMonthLength(2), 29)
+      assert.equal(getMonthLength(8, 2016), 31)
+      assert.equal(getMonthLength(2, 2016), 29)
+      assert.equal(getMonthLength(2, 2000), 29)
+      assert.equal(getMonthLength(2, 2400), 29)
+      assert.equal(getMonthLength(2, 2100), 28)
+      assert.equal(getMonthLength(2, 1800), 28)
+      assert.equal(getMonthLength(2, 1900), 28)
     })
   })
 

@@ -56,28 +56,28 @@ describe('zeller', () => {
         year: 1992,
         month: 4
       }
-      assert.equal(getDayOfWeek(dateObj), 4)
+      assert.equal(getDayOfWeek(dateObj), 3)
     })
     it('should return correct day of week', () => {
       const dateObj = {
         year: 2019,
         month: 1
       }
-      assert.equal(getDayOfWeek(dateObj), 3)
+      assert.equal(getDayOfWeek(dateObj), 2)
     })
     it('should return correct day of week', () => {
       const dateObj = {
         year: 2013,
         month: 9
       }
-      assert.equal(getDayOfWeek(dateObj), 1)
+      assert.equal(getDayOfWeek(dateObj), 0)
     })
     it('should return correct day of week', () => {
       const dateObj = {
         year: 2007,
         month: 6
       }
-      assert.equal(getDayOfWeek(dateObj), 6)
+      assert.equal(getDayOfWeek(dateObj), 5)
     })
   })
 })

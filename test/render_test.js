@@ -4,7 +4,12 @@ const {
   assert
 } = require('chai')
 const {
-  renderCal, createWeeks, createMainHeader, createFixedHeader, getMonthString
+  renderCal, 
+  createWeeks, 
+  createMainHeader, 
+  createFixedHeader, 
+  getMonthString,
+  getMonthLength
 } = require('../lib/render')
 
 describe('render', () => {
@@ -37,11 +42,20 @@ describe('render', () => {
     })
 
   })
+  describe('getMonthLength', () => {
+    it('it should return the correct amount of days in a month', () => {
+      assert.equal(getMonthLength(8), 31)
+      // assert.equal(getMonthLength(2), 29)
+    })
+  })
 
   describe('createWeeks', () => {
 
     it('should be a function', () => {
       assert.isFunction(createWeeks)
+    })
+    it('should return an array with length an interval of 7', () => {
+      const weeks = createWeeks(1, 8)
     })
 
   })

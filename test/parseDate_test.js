@@ -18,5 +18,19 @@ describe('parseDate', () => {
       }
       assert.deepEqual(makeDateObj([]), expected)
     })
+    it('should return requested year when passed one argument', () => {
+      const expected = {
+        year: 2017,
+        month: 0
+      }
+      assert.deepEqual(makeDateObj(['2017']), expected)
+    })
+    it('should return requested month and year when passed two arguments', () => {
+      const expected = {
+        year: 2017,
+        month: 2
+      }
+      assert.deepEqual(makeDateObj(['2', '2017']), expected)
+    })
   })
 })

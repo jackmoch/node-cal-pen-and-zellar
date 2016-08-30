@@ -17,11 +17,13 @@ describe('render', () => {
   })
 
   describe('createMainHeader', () => {
-
     it('should be a function', () => {
       assert.isFunction(createMainHeader)
     })
-
+    it('should take a month and year and return month year header', () => {
+      const expected = '     July 2016\n'
+      assert.equal(createMainHeader(2016, 7), expected)
+    })
   })
 
   describe('createFixedHeader', () => {
@@ -42,6 +44,12 @@ describe('render', () => {
       assert.isFunction(createWeeks)
     })
 
+  })
+  describe('getMonthString', () => {
+    it('should take a month num and return a full month string', () => {
+      assert.equal(getMonthString(1), 'January')
+      assert.equal(getMonthString(8), 'August')
+    })
   })
 
 })

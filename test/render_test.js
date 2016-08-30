@@ -4,7 +4,7 @@ const {
   assert
 } = require('chai')
 const {
-  renderCal, createWeeks, createMainHeader, createFixedHeader
+  renderCal, createWeeks, createMainHeader, createFixedHeader, getMonthString
 } = require('../lib/render')
 
 describe('render', () => {
@@ -28,6 +28,10 @@ describe('render', () => {
 
     it('should be a function', () => {
       assert.isFunction(createFixedHeader)
+    })
+    it('should return a string of Su to Sa', () => {
+      let expected = 'Su Mo Tu We Th Fr Sa '
+      assert.equal(createFixedHeader(), expected)
     })
 
   })

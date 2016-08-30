@@ -1,10 +1,22 @@
 'use strict'
+const {
+  assert
+} = require('chai');
+const {
+  makeDateObj
+} = require('../lib/makeDateObj.js')
 
-var assert = require('assert');
-describe('Array', function() {
-  describe('#indexOf()', function() {
-    it('should return -1 when the value is not present', function() {
-      assert.equal(-1, [1,2,3].indexOf(4));
-    });
-  });
-});
+describe('parseDate', () => {
+  describe('makeDateObj', () => {
+    it('should exist', () => {
+      assert.isFunction(makeDateObj)
+    })
+    it('should return the date of today if passed no arguments', () => {
+      const expected = {
+        year: 2016,
+        month: 8
+      }
+      assert.deepEqual(makeDateObj([]), expected)
+    })
+  })
+})

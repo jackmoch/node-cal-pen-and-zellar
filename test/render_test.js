@@ -60,7 +60,14 @@ describe('render', () => {
       assert.isFunction(createWeeks)
     })
     it('should return an array with length an interval of 7', () => {
+      let expected = '    1  2  3  4  5  6\n'
+         expected += ' 7  8  9 10 11 12 13\n'
+         expected += '14 15 16 17 18 19 20\n'
+         expected += '21 22 23 24 25 26 27\n'
+         expected += '28 29 30 31\n'
+
       const weeks = createWeeks(1, 8)
+      assert.equal(weeks, expected)
     })
 
   })

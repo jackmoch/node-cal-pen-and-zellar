@@ -26,7 +26,7 @@ describe('render', () => {
       assert.isFunction(createMainHeader)
     })
     it('should take a month and year and return month year header', () => {
-      const expected = '     July 2016\n'
+      const expected = '     July 2016'
       assert.equal(createMainHeader(2016, 7), expected)
     })
   })
@@ -37,7 +37,7 @@ describe('render', () => {
       assert.isFunction(createFixedHeader)
     })
     it('should return a string of Su to Sa', () => {
-      let expected = 'Su Mo Tu We Th Fr Sa '
+      let expected = 'Su Mo Tu We Th Fr Sa'
       assert.equal(createFixedHeader(), expected)
     })
 
@@ -67,6 +67,7 @@ describe('render', () => {
          expected += '28 29 30 31\n'
 
       const weeks = createWeeks(1, 8)
+      console.log('weeks in progress', weeks)
       assert.equal(weeks, expected)
     })
 

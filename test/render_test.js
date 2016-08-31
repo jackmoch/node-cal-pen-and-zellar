@@ -4,10 +4,10 @@ const {
   assert
 } = require('chai')
 const {
-  renderCal, 
-  createWeeks, 
-  createMainHeader, 
-  createFixedHeader, 
+  renderCal,
+  createWeeks,
+  createMainHeader,
+  createFixedHeader,
   getMonthString,
   getMonthLength
 } = require('../lib/render')
@@ -59,12 +59,12 @@ describe('render', () => {
     it('should be a function', () => {
       assert.isFunction(createWeeks)
     })
-    it('should return an array with length an interval of 7', () => {
+    it('should return a string with new line after each week', () => {
       let expected = '    1  2  3  4  5  6\n'
-         expected += ' 7  8  9 10 11 12 13\n'
-         expected += '14 15 16 17 18 19 20\n'
-         expected += '21 22 23 24 25 26 27\n'
-         expected += '28 29 30 31\n'
+      expected += ' 7  8  9 10 11 12 13\n'
+      expected += '14 15 16 17 18 19 20\n'
+      expected += '21 22 23 24 25 26 27\n'
+      expected += '28 29 30 31\n\n'
 
       const weeks = createWeeks(1, 8)
       console.log('weeks in progress', weeks)

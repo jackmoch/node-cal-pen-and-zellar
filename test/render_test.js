@@ -9,7 +9,8 @@ const {
   createMainHeader,
   createFixedHeader,
   getMonthString,
-  getMonthLength
+  getMonthLength,
+  checkForLeapYear
 } = require('../lib/render')
 
 describe('render', () => {
@@ -76,6 +77,14 @@ describe('render', () => {
     it('should take a month num and return a full month string', () => {
       assert.equal(getMonthString(1), 'January')
       assert.equal(getMonthString(8), 'August')
+    })
+  })
+
+  describe('checkForLeapYear', () => {
+    it('should return true or false based on if it is a leap year', () => {
+      assert.equal(checkForLeapYear(2300), false)
+      assert.equal(checkForLeapYear(1980), true)
+      assert.equal(checkForLeapYear(1984), true)
     })
   })
 

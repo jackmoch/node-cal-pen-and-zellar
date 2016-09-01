@@ -128,14 +128,14 @@ describe('render', () => {
 
   describe('trim', () => {
     it('it should remove spaces to the right of string', () => {
-      const testString = '25 26 27 28 29      '
-      const expected = '25 26 27 28 29'
-      assert.equal(trim(testString), expected)
+      const testString = ['25 26 27 28 29      ']
+      const expected = ['25 26 27 28 29']
+      assert.deepEqual(trim(testString), expected)
     })
     it('it should trim a main header', () => {
-      const mainHeader = '    August 2016     '
-      const expected = '    August 2016'
-      assert.equal(trim(mainHeader), expected)
+      const mainHeader = ['    August 2016     ']
+      const expected = ['    August 2016']
+      assert.deepEqual(trim(mainHeader), expected)
     })
   })
 

@@ -7,7 +7,7 @@
     "test": "test"
   },
   "scripts": {
-    "test": "mocha -R Nyan",
+    "test": "mocha -w",
     "coverage": "istanbul cover _mocha -- -R Nyan"
   },
   "author": "",

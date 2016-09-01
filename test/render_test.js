@@ -32,7 +32,7 @@ describe('render', () => {
         ['28 29 30 31\n'],
         ['\n']
       ]
-      assert.equal(renderCal(1,{ year: 2016, month: 8}), expected)
+      assert.deepEqual(renderCal(1,{ year: 2016, month: 8}), expected)
     })
 
   })
@@ -84,7 +84,7 @@ describe('render', () => {
         ['28 29 30 31         '],
         ['                    ']
       ]
-      assert.equal(createWeeks(1,8), expected)
+      assert.deepEqual(createWeeks(1,8), expected)
     })
     it('should return an array of 6 trimmed array', () => {
       const expected = [
@@ -96,17 +96,17 @@ describe('render', () => {
         ['']
       ]
       const month = trim(createWeeks(1,8))
-      assert.equal(month, expected)
+      assert.deepEqual(month, expected)
     })
 
   describe('newLine', () => {
     it('should be a function', () => {
       assert.isFunction(newLine)
     })
-    it('will add "\n" to the end of an array', () => {
+    it('will add "\\n" to the end of an array', () => {
       const array = ['    1  2  3  4  5  6']
       const expected = ['    1  2  3  4  5  6\n']
-      assert.equal(newLine(array), expected)
+      assert.deepEqual(newLine(array), expected)
     })
   })
 

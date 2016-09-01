@@ -16,7 +16,7 @@ describe('parseDate', () => {
       const expected = {
         valid: true,
         year: 2016,
-        month: 8
+        month: 9
       }
       assert.deepEqual(makeDateObj([]), expected)
     })

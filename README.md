@@ -7,26 +7,26 @@ Node-cal reverse engineers the [Unix shell (Bash)](https://en.wikipedia.org/wiki
 ##Testing
 Testing was performed with Mocha.js and Chai.js.
 ```bash
- 47  _-_-_-_-_-_-_-_-_-_-_-_-_-_-__,------,
- 0   _-_-_-_-_-_-_-_-_-_-_-_-_-_-__|  /\_/\  
- 0   _-_-_-_-_-_-_-_-_-_-_-_-_-_-_~|_( ^ .^)  
-     _-_-_-_-_-_-_-_-_-_-_-_-_-_-_ ""  ""  
+ 53  -_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-__,------,
+ 0   -_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-__|  /\_/\ 
+ 0   -_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_~|_( ^ .^) 
+     -_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_ ""  "" 
 
-  47 passing (862ms)
+  53 passing (1s)
 ```
 ##Coverage
 Test coverage was provided by npm package [istanbul](https://www.npmjs.com/package/istanbul).
 ```
 =============================================================================
-Writing coverage object [/Users/jackmoch/workspace/group-projects/d14-calendar-project/node-cal-pen-and-zellar/coverage/coverage.json]
-Writing coverage reports at [/Users/jackmoch/workspace/group-projects/d14-calendar-project/node-cal-pen-and-zellar/coverage]
+Writing coverage object [/Users/dave/workspace/node-milestone-2/node-cal-pen-and-zellar/coverage/coverage.json]
+Writing coverage reports at [/Users/dave/workspace/node-milestone-2/node-cal-pen-and-zellar/coverage]
 =============================================================================
 
 =============================== Coverage summary ===============================
-Statements   : 95.6% ( 87/91 )
-Branches     : 97.5% ( 39/40 )
-Functions    : 100% ( 0/0 )
-Lines        : 95.6% ( 87/91 )
+Statements   : 95.92% ( 94/98 )
+Branches     : 95.65% ( 44/46 )
+Functions    : 100% ( 1/1 )
+Lines        : 95.92% ( 94/98 )
 ================================================================================
 ```
 Note: Statements and lines are < 100% due to the fact that the function render.renderCal() is never tested directly, however it is called 9 times in the permutations_test.js suite.

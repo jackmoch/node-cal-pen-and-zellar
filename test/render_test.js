@@ -5,6 +5,7 @@ const {
 } = require('chai')
 const {
   renderCal,
+  renderCalString,
   createWeeks,
   createMainHeader,
   createFixedHeader,
@@ -22,7 +23,7 @@ describe('render', () => {
     it('should be a function', () => {
       assert.isFunction(renderCal)
     })
-    it.skip('should render out an array of 8 arrays', () => {
+    it('should render out an array of 8 arrays', () => {
       const expected = [
         ['    August 2016\n'],
         ['Su Mo Tu We Th Fr Sa\n'],
@@ -38,13 +39,32 @@ describe('render', () => {
 
   })
 
+    describe('renderCalString', () => {
+
+    it('should be a function', () => {
+      assert.isFunction(renderCal)
+    })
+    it('should render out a string', () => {
+      const expected = '    August 2016\n' +
+                       'Su Mo Tu We Th Fr Sa\n' +
+                       '    1  2  3  4  5  6\n' +
+                       ' 7  8  9 10 11 12 13\n' +
+                       '14 15 16 17 18 19 20\n' +
+                       '21 22 23 24 25 26 27\n' +
+                       '28 29 30 31\n' +
+                       '\n'
+      assert.deepEqual(renderCalString(renderCal(1,{ year: 2016, month: 8})), expected)
+    })
+
+  })
+
   describe('createMainHeader', () => {
     it('should be a function', () => {
       assert.isFunction(createMainHeader)
     })
     it('should take a month and year and return month year header', () => {
-      const expected = '    August 2016     '
-      assert.equal(createMainHeader(2016, 8), expected)
+      const expected = ['    August 2016     ']
+      assert.deepEqual(createMainHeader(2016, 8), expected)
     })
   })
 
@@ -54,8 +74,8 @@ describe('render', () => {
       assert.isFunction(createFixedHeader)
     })
     it('should return a string of Su to Sa', () => {
-      let expected = 'Su Mo Tu We Th Fr Sa'
-      assert.equal(createFixedHeader(), expected)
+      let expected = ['Su Mo Tu We Th Fr Sa']
+      assert.deepEqual(createFixedHeader(), expected)
     })
 
   })

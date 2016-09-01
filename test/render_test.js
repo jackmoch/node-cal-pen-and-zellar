@@ -11,7 +11,8 @@ const {
   getMonthString,
   getMonthLength,
   checkForLeapYear,
-  trim
+  trim,
+  newLine
 } = require('../lib/render')
 
 describe('render', () => {
@@ -74,18 +75,6 @@ describe('render', () => {
     it('should be a function', () => {
       assert.isFunction(createWeeks)
     })
-    // it('should return a string with new line after each week', () => {
-    //   let expected = '    1  2  3  4  5  6\n'
-    //   expected += ' 7  8  9 10 11 12 13\n'
-    //   expected += '14 15 16 17 18 19 20\n'
-    //   expected += '21 22 23 24 25 26 27\n'
-    //   expected += '28 29 30 31\n\n'
-
-    //   const weeks = createWeeks(1, 8)
-    //   console.log('weeks in progress', weeks)
-    //   assert.equal(weeks, expected)
-    // })
-    // 
     it('should return an array of 6 arrays', () => {
       const expected = [
         ['    1  2  3  4  5  6'],
@@ -99,10 +88,27 @@ describe('render', () => {
     })
     it('should return an array of 6 trimmed array', () => {
       const expected = [
+        ['    1  2  3  4  5  6'],
+        [' 7  8  9 10 11 12 13'],
+        ['14 15 16 17 18 19 20'],
+        ['21 22 23 24 25 26 27'],
+        ['28 29 30 31'],
+        ['']
       ]
       const month = trim(createWeeks(1,8))
       assert.equal(month, expected)
     })
+
+  describe('newLine', () => {
+    it('should be a function', () => {
+      assert.isFunction(newLine)
+    })
+    it('will add "\n" to the end of an array', () => {
+      const array = ['    1  2  3  4  5  6']
+      const expected = ['    1  2  3  4  5  6\n']
+      assert.equal(newLine(array), expected)
+    })
+  })
 
   })
   describe('getMonthString', () => {
@@ -125,6 +131,11 @@ describe('render', () => {
       const testString = '25 26 27 28 29      '
       const expected = '25 26 27 28 29'
       assert.equal(trim(testString), expected)
+    })
+    it('it should trim a main header', () => {
+      const mainHeader = '    August 2016     '
+      const expected = '    August 2016'
+      assert.equal(trim(mainHeader), expected)
     })
   })
 

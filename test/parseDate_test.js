@@ -14,6 +14,7 @@ describe('parseDate', () => {
     })
     it('should return the date of today if passed no arguments', () => {
       const expected = {
+        valid: true,
         year: 2016,
         month: 8
       }
@@ -21,6 +22,7 @@ describe('parseDate', () => {
     })
     it('should return requested year when passed one argument', () => {
       const expected = {
+        valid: true,
         year: 2017,
         month: 0
       }
@@ -28,6 +30,7 @@ describe('parseDate', () => {
     })
     it('should return requested month and year when passed two arguments', () => {
       const expected = {
+        valid: true,
         year: 2017,
         month: 2
       }

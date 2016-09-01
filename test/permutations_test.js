@@ -99,4 +99,32 @@ describe('cli', () => {
     })
   })
 
+  // this test has to be skipped because cal 1752 will produce a result
+  // it.skip('should handle bad args (year out of range 1752)', (cb) => {
+  //   exec('bin/mockcal 2 1752', (err, stdout) => {
+  //     exec('cal 2 1752', (err2, stdout2) => {
+  //       assert.strictEqual(stdout, stdout2)
+  //       cb()
+  //     })
+  //   })
+  // })
+
+  it('should handle bad args (year out of range 10000)', (cb) => {
+    exec('bin/mockcal 2 10000', (err, stdout) => {
+      exec('cal 2 10000', (err2, stdout2) => {
+        assert.strictEqual(stdout, stdout2)
+        cb()
+      })
+    })
+  })
+
+  it('should handle bad args (month out of range)', (cb) => {
+    exec('bin/mockcal 13 2000', (err, stdout) => {
+      exec('cal 13 2000', (err2, stdout2) => {
+        assert.strictEqual(stdout, stdout2)
+        cb()
+      })
+    })
+  })
+
 })

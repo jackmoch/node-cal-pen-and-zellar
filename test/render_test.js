@@ -70,7 +70,7 @@ describe('render', () => {
     })
     it('should take a month and year and return month year header', () => {
       const expected = ['    August 2016     ']
-      assert.deepEqual(centerString('August 2016'), expected)
+      assert.deepEqual(centerString('August 2016', 20), expected)
     })
   })
 

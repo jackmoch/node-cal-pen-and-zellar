@@ -9,7 +9,8 @@ const {
   newLine
 } = require('../lib/render')
 const {
-  createYearHeader
+  createYearHeader,
+  createYearArray
 } = require('../lib/year')
 
 describe('year', () => {
@@ -35,5 +36,27 @@ describe('year', () => {
       const expected = ['                             2016\n\n']
       assert.deepEqual(createYearHeader('2016'), expected)
     })
+  })
+  
+
+  describe('createYearArray', () => {
+  	it('should be an array of length 12', () => {
+  		const yearArray = createYearArray('2016')
+  		assert.equal(yearArray.length, 12)
+  	})
+  	it('should provide months with 6 arrays', () => {
+  		const yearArray = createYearArray('2016')
+  		assert.equal(yearArray[11].length, 6)
+  	})
+  	it('should contain a proper month header for the year calender', () => {
+  		const yearArray = createYearArray('2016')
+  		const monthHeader = yearArray[0][0]
+  		assert.equal(monthHeader, '      January       ')
+  	})
+  	it('should contain a proper 2nd week from the month of July', () => {
+  		const yearArray = createYearArray('2016')
+  		const secondWeek = yearArray[6][3]
+  		assert.equal(secondWeek, ' 3  4  5  6  7  8  9')
+  	})
   })
 })

@@ -32,7 +32,7 @@ describe('year', () => {
       assert.deepEqual(newLine(yearArrayTrimmed), expected)
     })
     it('should produce an array with trimmed string with a new line', () => {
-      const expected = ['                             2016\n']
+      const expected = ['                             2016\n\n']
       assert.deepEqual(createYearHeader('2016'), expected)
     })
   })

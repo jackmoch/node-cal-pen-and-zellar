@@ -7,7 +7,7 @@ const {
   renderCal,
   renderCalString,
   createWeeks,
-  createMainHeader,
+  centerString,
   createFixedHeader,
   getMonthString,
   getMonthLength,
@@ -34,37 +34,43 @@ describe('render', () => {
         ['28 29 30 31\n'],
         ['\n']
       ]
-      assert.deepEqual(renderCal(1,{ year: 2016, month: 8}), expected)
+      assert.deepEqual(renderCal(1, {
+        year: 2016,
+        month: 8
+      }), expected)
     })
 
   })
 
-    describe('renderCalString', () => {
+  describe('renderCalString', () => {
 
     it('should be a function', () => {
       assert.isFunction(renderCal)
     })
     it('should render out a string', () => {
       const expected = '    August 2016\n' +
-                       'Su Mo Tu We Th Fr Sa\n' +
-                       '    1  2  3  4  5  6\n' +
-                       ' 7  8  9 10 11 12 13\n' +
-                       '14 15 16 17 18 19 20\n' +
-                       '21 22 23 24 25 26 27\n' +
-                       '28 29 30 31\n' +
-                       '\n'
-      assert.deepEqual(renderCalString(renderCal(1,{ year: 2016, month: 8})), expected)
+        'Su Mo Tu We Th Fr Sa\n' +
+        '    1  2  3  4  5  6\n' +
+        ' 7  8  9 10 11 12 13\n' +
+        '14 15 16 17 18 19 20\n' +
+        '21 22 23 24 25 26 27\n' +
+        '28 29 30 31\n' +
+        '\n'
+      assert.deepEqual(renderCalString(renderCal(1, {
+        year: 2016,
+        month: 8
+      })), expected)
     })
 
   })
 
-  describe('createMainHeader', () => {
+  describe('centerString', () => {
     it('should be a function', () => {
-      assert.isFunction(createMainHeader)
+      assert.isFunction(centerString)
     })
     it('should take a month and year and return month year header', () => {
       const expected = ['    August 2016     ']
-      assert.deepEqual(createMainHeader(2016, 8), expected)
+      assert.deepEqual(centerString('August 2016'), expected)
     })
   })
 
@@ -105,7 +111,7 @@ describe('render', () => {
         ['28 29 30 31         '],
         ['                    ']
       ]
-      assert.deepEqual(createWeeks(1,8), expected)
+      assert.deepEqual(createWeeks(1, 8), expected)
     })
     it('should return an array of 6 trimmed array', () => {
       const expected = [
@@ -116,20 +122,20 @@ describe('render', () => {
         ['28 29 30 31'],
         ['']
       ]
-      const month = trimWeeks(createWeeks(1,8))
+      const month = trimWeeks(createWeeks(1, 8))
       assert.deepEqual(month, expected)
     })
 
-  describe('newLine', () => {
-    it('should be a function', () => {
-      assert.isFunction(newLine)
+    describe('newLine', () => {
+      it('should be a function', () => {
+        assert.isFunction(newLine)
+      })
+      it('will add "\\n" to the end of an array', () => {
+        const array = ['    1  2  3  4  5  6']
+        const expected = ['    1  2  3  4  5  6\n']
+        assert.deepEqual(newLine(array), expected)
+      })
     })
-    it('will add "\\n" to the end of an array', () => {
-      const array = ['    1  2  3  4  5  6']
-      const expected = ['    1  2  3  4  5  6\n']
-      assert.deepEqual(newLine(array), expected)
-    })
-  })
 
   })
   describe('getMonthString', () => {

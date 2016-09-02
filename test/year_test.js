@@ -58,9 +58,8 @@ describe('year', () => {
     })
     it('should contain a proper 2nd week from the month of July', () => {
       const yearArray = createYearArray('2016')
-      const july = yearArray[6]
-      const secondWeek = yearArray[5][3]
-      assert.deepEqual(yearArray, [' 3  4  5  6  7  8  9'])
+      const secondWeek = yearArray[6][3]
+      assert.deepEqual(secondWeek, [' 3  4  5  6  7  8  9'])
     })
   })
 })

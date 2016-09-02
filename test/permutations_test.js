@@ -127,4 +127,13 @@ describe('cli', () => {
     })
   })
 
+  it('should produce a calender with just a year as arg', () => {
+    exec('bin/mockcal 2000', (err, stdout) => {
+      exec('cal 2000', (err2, stdout2) => {
+        assert.strictEqual(stdout, stdout2)
+        cb()
+      })
+    })    
+  })
+
 })

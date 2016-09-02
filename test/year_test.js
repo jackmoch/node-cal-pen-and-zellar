@@ -70,16 +70,10 @@ describe('year', () => {
     it('should be a function', () => {
       assert.isFunction(createMonthRow)
     })
-    it('should produce an array of 3 months', () => {
+    it('should create single array of month headers string', () => {
       const yearArray = createYearArray('2016')
       const yearRow = createMonthRow(yearArray, 0)
       assert.equal(yearRow.length, 1)
-    })
-    it.skip('should have the correct month headers', () => {
-      const yearRow = createMonthRow(0)
-      const januaryHeader = yearRow[0][0]
-      const expected = '      January       '
-      assert.equal(januaryHeader, expected)
     })
     it('should concat the monthHeaders into one array', () => {
       const yearArray = createYearArray('2016')
@@ -96,30 +90,36 @@ describe('year', () => {
   })
 
   describe('createDaysRow', () => {
+    it('should be a function', () => {
+      assert.isFunction(createDaysRow)
+    })
     it('should concat the days headers into one array', () => {
       const yearArray = createYearArray('2016')
       const expected = ['Su Mo Tu We Th Fr Sa  Su Mo Tu We Th Fr Sa  Su Mo Tu We Th Fr Sa\n']
-      assert.deepEqual(createDaysRow(yearArray), expected)
+      assert.deepEqual(createDaysRow(), expected)
     })
   })
 
   describe('createWeekRow', () => {
+    it('should be a function', () => {
+      assert.isFunction(createWeekRow)
+    })
     it('should concat the first weeks of three months into one array', () => {
-      const yearRow = createMonthRow(0)
-      const expected = ['               1  2      1  2  3  4  5  6         1  2  3  4  5\n']
-      const weekRow = createWeekRow(yearRow)
+      const yearArray = createYearArray('2016')
+      const expected = ['                1  2      1  2  3  4  5  6         1  2  3  4  5\n']
+      const weekRow = createWeekRow(yearArray, 0, 2)
       assert.deepEqual(weekRow, expected)
     })
     it('should concat the secondWeek weeks of three months into one array', () => {
-      const yearRow = createMonthRow(0)
+      const yearArray = createYearArray('2016')
       const expected = [' 3  4  5  6  7  8  9   7  8  9 10 11 12 13   6  7  8  9 10 11 12\n']
-      const weekRow = createWeekRow(yearRow)
+      const weekRow = createWeekRow(yearArray, 0, 3)
       assert.deepEqual(weekRow, expected)
     })
     it('should concat the last weeks of three months into one array', () => {
-      const yearRow = createMonthRow(0)
+      const yearArray = createYearArray('2016')
       const expected = ['31                                          \n']
-      const weekRow = createWeekRow(yearRow)
+      const weekRow = createWeekRow(yearArray, 0, 7)
       assert.deepEqual(weekRow, expected)
     })
   })

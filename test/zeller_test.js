@@ -79,5 +79,12 @@ describe('zeller', () => {
       }
       assert.equal(getDayOfWeek(dateObj), 5)
     })
+    it('should return correct day of week for March 2016', () => {
+      const dateObj = {
+        year: 2016,
+        month: 3
+      }
+      assert.equal(getDayOfWeek(dateObj), 2)
+    })
   })
 })

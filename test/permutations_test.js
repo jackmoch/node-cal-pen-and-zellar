@@ -127,9 +127,45 @@ describe('cli', () => {
     })
   })
 
-  it.skip('should produce a calender with just a year as arg', () => {
+  it('should produce a calender with just a year as arg', (cb) => {
+    exec('bin/mockcal 2016', (err, stdout) => {
+      exec('cal 2016', (err2, stdout2) => {
+        assert.strictEqual(stdout, stdout2)
+        cb()
+      })
+    })
+  })
+
+  it('should produce a calender with just a year as arg', (cb) => {
     exec('bin/mockcal 2000', (err, stdout) => {
       exec('cal 2000', (err2, stdout2) => {
+        assert.strictEqual(stdout, stdout2)
+        cb()
+      })
+    })
+  })
+
+  it('should produce a calender with just a year as arg', (cb) => {
+    exec('bin/mockcal 1800', (err, stdout) => {
+      exec('cal 1800', (err2, stdout2) => {
+        assert.strictEqual(stdout, stdout2)
+        cb()
+      })
+    })
+  })
+
+  it('should produce a calender with just a year as arg', (cb) => {
+    exec('bin/mockcal 2500', (err, stdout) => {
+      exec('cal 2500', (err2, stdout2) => {
+        assert.strictEqual(stdout, stdout2)
+        cb()
+      })
+    })
+  })
+
+  it('should produce a calender with just a year as arg', (cb) => {
+    exec('bin/mockcal 1973', (err, stdout) => {
+      exec('cal 1973', (err2, stdout2) => {
         assert.strictEqual(stdout, stdout2)
         cb()
       })

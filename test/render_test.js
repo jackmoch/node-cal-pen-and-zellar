@@ -9,13 +9,15 @@ const {
   createWeeks,
   centerString,
   createFixedHeader,
-  getMonthString,
-  getMonthLength,
-  checkForLeapYear,
   trim,
   trimWeeks,
   newLine
 } = require('../lib/render')
+const {
+  checkForLeapYear,
+  getMonthLength,
+  getMonthString
+} = require('../lib/dateConversion')
 
 describe('render', () => {
   describe('renderCal', () => {
@@ -85,17 +87,6 @@ describe('render', () => {
     })
 
   })
-  describe('getMonthLength', () => {
-    it('it should return the correct amount of days in a month', () => {
-      assert.equal(getMonthLength(8, 2016), 31)
-      assert.equal(getMonthLength(2, 2016), 29)
-      assert.equal(getMonthLength(2, 2000), 29)
-      assert.equal(getMonthLength(2, 2400), 29)
-      assert.equal(getMonthLength(2, 2100), 28)
-      assert.equal(getMonthLength(2, 1800), 28)
-      assert.equal(getMonthLength(2, 1900), 28)
-    })
-  })
 
   describe('createWeeks', () => {
 
@@ -135,21 +126,6 @@ describe('render', () => {
         const expected = ['    1  2  3  4  5  6\n']
         assert.deepEqual(newLine(array), expected)
       })
-    })
-
-  })
-  describe('getMonthString', () => {
-    it('should take a month num and return a full month string', () => {
-      assert.equal(getMonthString(1), 'January')
-      assert.equal(getMonthString(8), 'August')
-    })
-  })
-
-  describe('checkForLeapYear', () => {
-    it('should return true or false based on if it is a leap year', () => {
-      assert.equal(checkForLeapYear(2300), false)
-      assert.equal(checkForLeapYear(1980), true)
-      assert.equal(checkForLeapYear(1984), true)
     })
   })
 

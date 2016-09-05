@@ -80,6 +80,10 @@ describe('parseDate', () => {
       assert.equal(validateArgs(['a']), false)
     })
 
+    it('should return false if passed 3 args', () => {
+      assert.equal(validateArgs(['12', '2016', '6']), false)
+    })
+
   })
 
 })

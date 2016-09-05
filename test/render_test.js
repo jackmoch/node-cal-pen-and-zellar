@@ -1,4 +1,4 @@
-'use strict';
+'use strict'
 
 const {
   assert
@@ -9,15 +9,16 @@ const {
   createWeeks,
   centerString,
   createFixedHeader,
-  trim,
-  trimWeeks,
-  newLine
 } = require('../lib/render')
 const {
-  checkForLeapYear,
-  getMonthLength,
-  getMonthString
-} = require('../lib/dateConversion')
+  newLine,
+  trimWeeks
+} = require('../lib/format')
+// const {
+//   checkForLeapYear,
+//   getMonthLength,
+//   getMonthString
+// } = require('../lib/dateConversion')
 
 describe('render', () => {
   describe('renderCal', () => {
@@ -116,30 +117,5 @@ describe('render', () => {
       const month = trimWeeks(createWeeks(1, 8))
       assert.deepEqual(month, expected)
     })
-
-    describe('newLine', () => {
-      it('should be a function', () => {
-        assert.isFunction(newLine)
-      })
-      it('will add "\\n" to the end of an array', () => {
-        const array = ['    1  2  3  4  5  6']
-        const expected = ['    1  2  3  4  5  6\n']
-        assert.deepEqual(newLine(array), expected)
-      })
-    })
   })
-
-  describe('trim', () => {
-    it('it should remove spaces to the right of string', () => {
-      const testString = ['25 26 27 28 29      ']
-      const expected = ['25 26 27 28 29']
-      assert.deepEqual(trim(testString), expected)
-    })
-    it('it should trim a main header', () => {
-      const mainHeader = ['    August 2016     ']
-      const expected = ['    August 2016']
-      assert.deepEqual(trim(mainHeader), expected)
-    })
-  })
-
 })

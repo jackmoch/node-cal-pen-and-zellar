@@ -5,9 +5,11 @@ const {
 } = require('chai')
 const {
   centerString,
+} = require('../lib/render')
+const {
   trim,
   newLine
-} = require('../lib/render')
+} = require('../lib/format')
 const {
   createYearHeader,
   createYearArray,

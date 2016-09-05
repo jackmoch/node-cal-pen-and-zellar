@@ -15,8 +15,12 @@ const {
   createYearArray,
   createMonthRow,
   createDaysRow,
-  createWeekRow
+  createWeekRow,
+  createYearString
 } = require('../lib/year')
+const {
+  exec
+} = require('child_process')
 
 describe('year', () => {
   describe('createYearHeader', () => {
@@ -124,5 +128,23 @@ describe('year', () => {
       const weekRow = createWeekRow(yearArray, 0, 7)
       assert.deepEqual(weekRow, expected)
     })
+  })
+  describe('year string', () => {
+    it('should be a function', () => {
+      assert.isFunction(createYearString)
+    })
+    it('should produce a string', () => {
+      const yearString = createYearString('2016')
+      assert.equal((yearString.length > 0), true)
+    })
+    // it.skip('it should replicate bash command "cal"', () => {
+    //   let expected
+    //   exec('cal 2016', (err, stdout) => {
+    //     expected = stdout
+    //     done()
+    //   })
+    //   const yearString = createYearString('2016')
+    //   assert.strictEqual(yearString, expected)
+    // })
   })
 })

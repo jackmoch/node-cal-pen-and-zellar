@@ -15,7 +15,7 @@ Su Mo Tu We Th Fr Sa
 18 19 20 21 22 23 24
 25 26 27 28 29 30
 ```
-Likewise, `mockcal 9 2016` or `mockcal` alsoe produces:
+Likewise, `mockcal 9 2016` or `mockcal` also produces:
 ```bash
    September 2016
 Su Mo Tu We Th Fr Sa
@@ -110,6 +110,5 @@ Lines        : 100% ( 192/192 )
 ================================================================================
 
 ```
-Note: Statements and lines are < 100% due to the fact that the function render.renderCal() is never tested directly, however it is called 9 times in the permutations_test.js suite.
 ##Thanks
 ...to NSS Teaching Assistant Callan Morrison who provided invaluable assistance.
